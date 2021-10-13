@@ -1,7 +1,11 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
+    siteUrl: "https://viralpatel.blog",
+    titleTemplate: "%s · Viral Patel Blog",
     title: "Viral Patel Blog",
+    description: "Viral Patel Blog",
+    twitterUsername: "@thedecodedcoder",
+    image: '/images/logo.png'
   },
   plugins: [
     {
@@ -26,6 +30,29 @@ module.exports = {
         path: "./src/pages/",
       },
       __key: "pages",
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          'gatsby-remark-autolink-headers',
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              classPrefix: 'language-',
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: true,
+              noInlineHighlight: false,
+              prompt: {
+                user: 'root',
+                host: 'localhost',
+                global: true,
+              },
+            },
+          },
+        ],
+      },
     },
   ],
 };
